@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Navbar from './components/navbar';
 import ExersiceList from './components/exercises-list';
@@ -15,10 +15,12 @@ function App() {
         <BrowserRouter>
             <Navbar/>
             <br/>
-            <Route exact path="/" component={ ExersiceList } />
-            <Route path="/edit/:id" component={ EditExercise } />
-            <Route path="/create" component={ CreateExercise } />
-            <Route path="/user" component={ CreateUser } />
+            <Switch>
+                <Route exact path="/" component={ ExersiceList } />
+                <Route path="/edit/:id" component={ EditExercise } />
+                <Route path="/create" component={ CreateExercise } />
+                <Route path="/user" component={ CreateUser } />
+            </Switch>
         </BrowserRouter>
     </div>
   );
